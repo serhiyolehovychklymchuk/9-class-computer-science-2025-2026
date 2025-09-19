@@ -1,1 +1,497 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інструкція з встановлення Google Drive</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .step-container {
+            background: #f8f9fa;
+            border-left: 5px solid #4285f4;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            page-break-inside: avoid;
+        }
+        
+        .step-title {
+            color: #1a73e8;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .step-number {
+            background: #4285f4;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+        
+        .substep {
+            margin: 15px 0;
+            padding: 10px 0;
+        }
+        
+        .substep h4 {
+            color: #34a853;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .action-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .action-list li {
+            background: white;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #34a853;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning::before {
+            content: "⚠️ ";
+            font-weight: bold;
+        }
+        
+        .tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .tip::before {
+            content: "💡 ";
+            font-weight: bold;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .success::before {
+            content: "✅ ";
+            font-weight: bold;
+        }
+        
+        .screenshot {
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #4285f4;
+        }
+        
+        .benefit-card h4 {
+            color: #1a73e8;
+            margin-top: 0;
+        }
+        
+        .troubleshooting {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .troubleshooting h4 {
+            color: #ea4335;
+            margin-bottom: 10px;
+        }
+        
+        .solution {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #34a853;
+        }
+        
+        @media print {
+            .step-container {
+                page-break-inside: avoid;
+            }
+            
+            .header {
+                background: #4285f4 !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📱 Інструкція з встановлення та налаштування Google Drive</h1>
+        <p>Покроковий посібник для встановлення та налаштування</p>
+    </div>
 
+    <div class="step-container">
+        <div class="step-title">
+            <div class="step-number">1</div>
+            Завантаження та встановлення Google Drive
+        </div>
+        
+        <div class="substep">
+            <h4>Крок 1.1: Перехід на офіційний сайт</h4>
+            <ul class="action-list">
+                <li>Відкрийте веб-браузер (Chrome, Firefox, Edge або інший)</li>
+                <li>Перейдіть за посиланням: <strong>https://ipv4.google.com/intl/uk/drive/download/</strong></li>
+                <li>Переконайтеся, що ви на офіційному сайті Google</li>
+            </ul>
+            
+            <img src="1.png" alt="Скріншот №1: Сторінка завантаження Google Drive з кнопкою 'Завантажити Диск для комп'ютера'" class="screenshot">
+        </div>
+
+        <div class="substep">
+            <h4>Крок 1.2: Завантаження програми</h4>
+            <ul class="action-list">
+                <li>Натисніть синю кнопку <strong>"Завантажити Диск для комп'ютера"</strong></li>
+                <li>Файл завантажиться у папку "Завантаження"</li>
+                <li>Дочекайтеся завершення завантаження (1-2 хвилини)</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>Важливо:</strong> Переконайтеся, що завантажуєте з офіційного сайту Google для безпеки
+            </div>
+        </div>
+
+        <div class="substep">
+            <h4>Крок 1.3: Запуск встановлення</h4>
+            <ul class="action-list">
+                <li>Перейдіть у папку "Завантаження"</li>
+                <li>Знайдіть файл "GoogleDriveSetup.exe"</li>
+                <li>Двічі клікніть для запуску</li>
+                <li>При попередженні Windows натисніть "Виконати"</li>
+            </ul>
+            
+           
+        </div>
+    </div>
+
+    <div class="step-container">
+        <div class="step-title">
+            <div class="step-number">2</div>
+            Початкове налаштування Google Drive
+        </div>
+        
+        <div class="substep">
+            <h4>Крок 2.1: Вхід в акаунт Google</h4>
+            <ul class="action-list">
+                <li>Введіть електронну пошту Gmail</li>
+                <li>Введіть пароль від акаунта Google</li>
+                <li>При двофакторній автентифікації введіть код</li>
+            </ul>
+        </div>
+
+        <div class="substep">
+            <h4>Крок 2.2: Вибір папки для синхронізації</h4>
+            <img src="2.png" alt="Скріншот №6: Вікно підтвердження налаштувань Google Drive з інформацією про папку Desktop та кнопкою 'Зберегти'" class="screenshot" style="width: 50%; max-width: 400px;">
+
+            <img src="3.png" alt="Скріншот №3: Вікно налаштування Google Drive зі статусом синхронізації та кнопкою 'Додати інші папки для синхронізації'" class="screenshot">
+            <ul class="action-list">
+                <li>У вікні вибору папки оберіть робочий стіл</li>
+                <li><strong>Шлях:</strong> C:\Users\[Ваше ім'я]\Desktop</li>
+                <li>Натисніть "Вибір папки"</li>
+            </ul>
+            
+            
+
+            <img src="4.png" alt="Скріншот №3: Вікно налаштування Google Drive зі статусом синхронізації та кнопкою 'Додати інші папки для синхронізації'" class="screenshot">
+            
+            <div class="tip">
+                <strong>Порада:</strong> Точний шлях може відрізнятися залежно від мови Windows
+            </div>
+        </div>
+
+        <div class="substep">
+            <h4>Крок 2.3: Налаштування параметрів синхронізації</h4>
+            
+            
+            
+            <img src="5.png" alt="Скріншот №5: Вікно налаштування параметрів з опціями 'Синхронізувати з Google Диском' та 'Автозавантаження в Google Фото', кнопки 'Скасувати' та 'Готово'" class="screenshot">
+            
+            <ul class="action-list">
+                <li><strong>✅ Синхронізувати з Google Drive</strong> (Обов'язково відмітити)</li>
+                <li><strong>☐ Автозавантаження в Google Фото</strong> (За бажанням)</li>
+                <li>Натисніть синю кнопку <strong>"Готово"</strong></li>
+            </ul>
+            
+            <div class="warning">
+                <strong>Увага:</strong> При відмітці Google Фото всі зображення будуть завантажені в хмару
+            </div>
+        </div>
+    </div>
+
+    <div class="step-container">
+        <div class="step-title">
+            <div class="step-number">3</div>
+            Підтвердження успішного встановлення
+        </div>
+        
+        <div class="substep">
+            <h4>Крок 3.1: Знаходження іконки Google Drive</h4>
+            <ul class="action-list">
+                <li>Подивіться в системний трей (правий нижній кут)</li>
+                <li>Знайдіть іконку Google Drive (трикутник Google)</li>
+                <li>При потребі натисніть стрілку "Показати приховані іконки"</li>
+            </ul>
+            
+            <img src="2.png" alt="Скріншот №6: Вікно підтвердження налаштувань Google Drive з інформацією про папку Desktop та кнопкою 'Зберегти'" class="screenshot" style="width: 50%; max-width: 400px;">
+        </div>
+
+        <div class="substep">
+            <h4>Крок 3.2: Доступ через Провідник Windows</h4>
+            <ul class="action-list">
+                <li>Натисніть Windows + E для відкриття Провідника</li>
+                <li>У лівій панелі знайдіть "Google Drive"</li>
+                <li>Клікніть для перегляду синхронізованих файлів</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step-container">
+        <div class="step-title">
+            <div class="step-number">4</div>
+            Тестування синхронізації
+        </div>
+        
+        <div class="substep">
+            <h4>Крок 4.1: Перевірка через веб-інтерфейс</h4>
+            <ul class="action-list">
+                <li>Перейдіть на https://drive.google.com</li>
+                <li>Увійдіть в той самий акаунт Google</li>
+                <li>Клікніть "Комп'ютери" → знайдіть папку Desktop</li>
+                <li>Переконайтеся, що файли відображаються</li>
+            </ul>
+            
+           
+            
+            <img src="8.png" alt="Скріншот №8: Веб-інтерфейс Google Drive з розділом 'Комп'ютери', показана папка Desktop з файлами" class="screenshot">
+        </div>
+
+        <div class="substep">
+            <h4>Крок 4.2: Тест створення файлу</h4>
+            <ul class="action-list">
+                <li>На робочому столі на своєму ПК створіть папку "Test"</li>
+                <li>Правий клік → Створити → Папка</li>
+                <li>Назвіть папку "Test"</li>
+            </ul>
+        </div>
+
+        <div class="substep">
+            <h4>Крок 4.3: Перевірка синхронізації</h4>
+            <ul class="action-list">
+                <li>Поверніться до веб-інтерфейсу Google Drive</li>
+                <li>Перейдіть у папку Desktop</li>
+                <li>Почекайте 1-2 хвилини</li>
+                <li>Оновіть сторінку (F5)</li>
+                <li>Папка "Test" повинна з'явитися</li>
+            </ul>
+            
+            <div class="success">
+                <strong>Успіх!</strong> Якщо папка з'явилася, синхронізація працює правильно
+            </div>
+        </div>
+    </div>
+
+    <div class="step-container">
+        <div class="step-title">
+            <div class="step-number">5</div>
+            Додаткові налаштування
+        </div>
+        
+        <div class="substep">
+            <h4>Налаштування додаткових папок</h4>
+            <ul class="action-list">
+                <li>Правий клік на іконку Google Drive</li>
+                <li>Оберіть "Налаштування"</li>
+                <li>Вкладка "Папки з комп'ютера"</li>
+                <li>Натисніть "Додати папку"</li>
+                <li>Оберіть важливі папки (Документи, Зображення)</li>
+            </ul>
+        </div>
+
+        <div class="substep">
+            <h4>Контроль використання місця</h4>
+            <div class="tip">
+                <strong>Безкоштовний план:</strong> 15 ГБ для всіх сервісів Google<br>
+                <strong>Перевірка:</strong> У веб-інтерфейсі знизу ліворуч показано використане місце
+            </div>
+        </div>
+    </div>
+
+    <div class="step-container">
+        <div class="step-title">
+            <div class="step-number">6</div>
+            Переваги використання Google Drive
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4>🔄 Автоматичне резервне копіювання</h4>
+                <p>Ваші файли завжди в безпеці в хмарі</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h4>📱 Доступ з будь-якого пристрою</h4>
+                <p>Телефон, планшет, інший комп'ютер</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h4>👥 Спільна робота</h4>
+                <p>Діліться файлами з однокласниками</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h4>📚 Історія версій</h4>
+                <p>Відновлення попередніх версій документів</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="troubleshooting">
+        <h3>🔧 Вирішення можливих проблем</h3>
+        
+        <div>
+            <h4>Проблема: Google Drive не синхронізується</h4>
+            <div class="solution">
+                <strong>Рішення:</strong>
+                <ul>
+                    <li>Перевірте інтернет-з'єднання</li>
+                    <li>Перезапустіть Google Drive</li>
+                    <li>Перевірте вільне місце на диску</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div>
+            <h4>Проблема: Файли не відображаються</h4>
+            <div class="solution">
+                <strong>Рішення:</strong>
+                <ul>
+                    <li>Переконайтеся, що синхронізація увімкнена</li>
+                    <li>Перевірте налаштування папок</li>
+                    <li>Почекайте кілька хвилин</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div>
+            <h4>Проблема: Повільна синхронізація</h4>
+            <div class="solution">
+                <strong>Рішення:</strong>
+                <ul>
+                    <li>Закрийте інші програми</li>
+                    <li>Перевірте швидкість інтернету</li>
+                    <li>Синхронізуйте менше папок</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="step-container">
+        <div class="step-title">
+            <div class="step-number">💡</div>
+            Важливі поради
+        </div>
+        
+        <ul class="action-list">
+            <li><strong>🎯 Організація:</strong> Створюйте окремі папки для кожного предмету</li>
+            <li><strong>🔄 Синхронізація:</strong> Завжди перевіряйте синхронізацію важливих документів</li>
+            <li><strong>🔒 Безпека:</strong> Ніколи не діліться паролем від Google акаунта</li>
+            <li><strong>💾 Резервування:</strong> Google Drive - додатковий захист, не єдиний</li>
+            <li><strong>📖 Навчання:</strong> Використовуйте для спільних проектів з однокласниками</li>
+        </ul>
+    </div>
+
+    <div class="success" style="text-align: center; margin-top: 30px; font-size: 18px;">
+        <strong>🎉 Вітаємо! Тепер ваші файли автоматично синхронізуються з Google Drive!</strong>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; color: #666; font-size: 14px;">
+        <p>🔄 Версія: 2025 | Google Drive для Windows</p>
+    </div>
+</body>
+</html>
