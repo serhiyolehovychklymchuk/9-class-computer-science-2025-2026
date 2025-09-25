@@ -158,9 +158,12 @@
 
         .schemes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 1fr;
             gap: 30px;
             margin: 30px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .scheme-card {
@@ -219,10 +222,63 @@
             margin: 15px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .scheme-image:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
+        }
+
+        .scheme-image:active {
+            transform: scale(0.98);
+        }
+
+        /* Модальне вікно для збільшених зображень */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .close:hover {
+            color: #667eea;
         }
 
         .scheme-description {
@@ -442,109 +498,117 @@
                     <div class="scheme-card">
                         <div class="scheme-number">1</div>
                         <h3>Файловий монітор (вартовий)</h3>
-                        <img src="file_monitor_schema.png" alt="Схема файлового монітора" class="scheme-image">
+                        <img src="file_monitor_schema.png" alt="Схема файлового монітора" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Антивірусна програма, яка постійно знаходиться у пам'яті комп'ютера і автоматично перевіряє всі файли при зверненні до них.
+                            Антивірусна програма, яка постійно знаходиться у пам'яті комп'ютера і автоматично перевіряє всі файли при зверненні до них. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">2</div>
                         <h3>Інспектор (поведінковий аналізатор)</h3>
-                        <img src="behavioral_analyzer_schema.png" alt="Схема поведінкового аналізатора" class="scheme-image">
+                        <img src="behavioral_analyzer_schema.png" alt="Схема поведінкового аналізатора" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Антивірусна програма, яка відстежує поведінку програм у системі і виявляє підозрілі дії, характерні для шкідливого ПЗ.
+                            Антивірусна програма, яка відстежує поведінку програм у системі і виявляє підозрілі дії, характерні для шкідливого ПЗ. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">3</div>
                         <h3>Поштовий фільтр</h3>
-                        <img src="email_filter_schema.png" alt="Схема поштового фільтра" class="scheme-image">
+                        <img src="email_filter_schema.png" alt="Схема поштового фільтра" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Антивірусна програма, яка фільтрує вхідну та вихідну електронну пошту, блокуючи спам, фішинг та шкідливі вкладення.
+                            Антивірусна програма, яка фільтрує вхідну та вихідну електронну пошту, блокуючи спам, фішинг та шкідливі вкладення. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">4</div>
                         <h3>USB-захист</h3>
-                        <img src="usb_protection_schema.png" alt="Схема USB-захисту" class="scheme-image">
+                        <img src="usb_protection_schema.png" alt="Схема USB-захисту" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Антивірусний модуль, який контролює підключення USB-пристроїв та автоматично сканує змінні носії на наявність загроз.
+                            Антивірусний модуль, який контролює підключення USB-пристроїв та автоматично сканує змінні носії на наявність загроз. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">5</div>
                         <h3>Евристичний аналізатор</h3>
-                        <img src="heuristic_analyzer_schema.png" alt="Схема евристичного аналізатора" class="scheme-image">
+                        <img src="heuristic_analyzer_schema.png" alt="Схема евристичного аналізатора" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Антивірусна технологія, яка аналізує код програм на наявність підозрілих конструкцій та алгоритмів, характерних для вірусів.
+                            Антивірусна технологія, яка аналізує код програм на наявність підозрілих конструкцій та алгоритмів, характерних для вірусів. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">6</div>
                         <h3>Мережевий екран (брандмауер)</h3>
-                        <img src="firewall_schema.png" alt="Схема мережевого екрану" class="scheme-image">
+                        <img src="firewall_schema.png" alt="Схема мережевого екрану" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Мережевий захисний бар'єр, який контролює вхідний та вихідний трафік між комп'ютером і мережею згідно з налаштованими правилами безпеки.
+                            Мережевий захисний бар'єр, який контролює вхідний та вихідний трафік між комп'ютером і мережею згідно з налаштованими правилами безпеки. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">7</div>
                         <h3>Антифішинг</h3>
-                        <img src="antiphishing_schema.png" alt="Схема антифішингу" class="scheme-image">
+                        <img src="antiphishing_schema.png" alt="Схема антифішингу" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Захисна технологія, яка виявляє та блокує фішингові атаки - спроби шахраїв отримати особисті дані через підроблені веб-сайти та листи.
+                            Захисна технологія, яка виявляє та блокує фішингові атаки - спроби шахраїв отримати особисті дані через підроблені веб-сайти та листи. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">8</div>
                         <h3>Антиспам</h3>
-                        <img src="antispam_schema.png" alt="Схема антиспаму" class="scheme-image">
+                        <img src="antispam_schema.png" alt="Схема антиспаму" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Система фільтрації, яка автоматично виявляє та блокує небажану електронну пошту (спам), захищаючи поштову скриньку від засмічення.
+                            Система фільтрації, яка автоматично виявляє та блокує небажану електронну пошту (спам), захищаючи поштову скриньку від засмічення. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">9</div>
                         <h3>Батьківський контроль</h3>
-                        <img src="parental_control_schema.png" alt="Схема батьківського контролю" class="scheme-image">
+                        <img src="parental_control_schema.png" alt="Схема батьківського контролю" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Програмне забезпечення для контролю та обмеження доступу дітей до інтернету, додатків та комп'ютерних ресурсів з метою забезпечення їхньої безпеки.
+                            Програмне забезпечення для контролю та обмеження доступу дітей до інтернету, додатків та комп'ютерних ресурсів з метою забезпечення їхньої безпеки. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">10</div>
                         <h3>Комплексні рішення безпеки</h3>
-                        <img src="security_suite_schema.png" alt="Схема комплексних рішень безпеки" class="scheme-image">
+                        <img src="security_suite_schema.png" alt="Схема комплексних рішень безпеки" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Інтегровані програмні пакети, які поєднують кілька типів захисту в одному рішенні: антивірус, брандмауер, антиспам, VPN та інші компоненти безпеки.
+                            Інтегровані програмні пакети, які поєднують кілька типів захисту в одному рішенні: антивірус, брандмауер, антиспам, VPN та інші компоненти безпеки. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">11</div>
                         <h3>Хмарні антивіруси</h3>
-                        <img src="cloud_antivirus_schema.png" alt="Схема хмарних антивірусів" class="scheme-image">
+                        <img src="cloud_antivirus_schema.png" alt="Схема хмарних антивірусів" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Антивірусні рішення, які виконують основну обробку та аналіз файлів у хмарі, залишаючи мінімальний клієнт на пристрої користувача.
+                            Антивірусні рішення, які виконують основну обробку та аналіз файлів у хмарі, залишаючи мінімальний клієнт на пристрої користувача. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
                     </div>
 
                     <div class="scheme-card">
                         <div class="scheme-number">12</div>
                         <h3>Антишпигунське ПЗ</h3>
-                        <img src="anti_spyware_schema.png" alt="Схема антишпигунського ПЗ" class="scheme-image">
+                        <img src="anti_spyware_schema.png" alt="Схема антишпигунського ПЗ" class="scheme-image" onclick="openModal(this)">
                         <div class="scheme-description">
-                            Спеціалізоване програмне забезпечення для виявлення та видалення шпигунського ПЗ, adware, malware та інших небажаних програм.
+                            Спеціалізоване програмне забезпечення для виявлення та видалення шпигунського ПЗ, adware, malware та інших небажаних програм. <strong>Натисніть на схему для збільшення.</strong>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Модальне вікно -->
+                <div id="imageModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-content">
+                        <img id="modalImage" class="modal-image" alt="Збільшена схема">
                     </div>
                 </div>
             </div>
@@ -836,6 +900,39 @@
     </div>
 
     <script>
+        // Функції для модального вікна
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden'; // Блокуємо скрол фону
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Відновлюємо скрол
+        }
+
+        // Закриття модального вікна при кліці поза зображенням
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('imageModal');
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+
+        // Закриття модального вікна клавішею Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
         // Табы
         document.querySelectorAll('.tab-button').forEach(button => {
             button.addEventListener('click', () => {
